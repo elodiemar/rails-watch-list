@@ -5,16 +5,15 @@
 <p class="btn btn-ghost"> <%= link_to "back to list's list",  root_path %></p>
 
 
+
 <div class="cards my-2 mb-3" >
   <% @list.bookmarks.each do |bookmark| %>
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= bookmark.movie.poster_url %>)">
-    <%= bookmark.movie.title %>
+    <p><%= bookmark.movie.title %> </p><br>
   </div>
-  <% end %>
+<% end %>
 </div>
 
-<%= cl_image_tag("363964_uwbogk",
-      width: 450, height: 300, crop: :fill) %>
 
 <p class="btn btn-ghost"> <%= link_to "add bookmarks",  new_list_bookmark_path(@list) %></p>
 

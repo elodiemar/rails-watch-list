@@ -4,12 +4,12 @@
 
 <div class="cards">
   <% @lists.each do |list| %>
-  <div class="card-category">
-    <%= link_to list.name, list_path(list) %>
+  <div class="card-category" >
+  <%= cl_image_tag list.photo.key, class: "card-category card-img", crop: :fill  %>
+   <p> <%= link_to list.name, list_path(list) %> </p>
   </div>
   <% end %>
 </div>
-
 
 <br>
 <p class="btn btn-ghost"> <%= link_to "add list",  new_list_path%></p>
