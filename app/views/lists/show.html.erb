@@ -1,0 +1,24 @@
+
+
+<h2><%=@list.name %></h2>
+
+<p > <%= link_to "back to list's list",  root_path %></p>
+
+
+<ul class="list-group">
+  <% @list.bookmarks.each do |bookmark| %>
+    <img src=<%= bookmark.movie.poster_url %>>
+    <li class="list-group-item"><%= bookmark.movie.overview %></li>
+    <li class="list-group-item"><%= bookmark.comment %></li>
+    <li class="list-group-item"><%= bookmark.movie.title %></li>
+
+  <% end %>
+</ul>
+<br>
+
+<p > <%= link_to "add bookmarks",  new_list_bookmark_path(@list) %></p>
+
+<%= link_to "Delete",
+  list_path(@list),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
