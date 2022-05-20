@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :lists do
+  resources :lists, except: :index do
     resources :bookmarks, only: [:new , :create]
   end
   root to: "lists#home"
