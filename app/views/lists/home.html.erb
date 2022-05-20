@@ -1,10 +1,15 @@
-<h1>lists#home</h1>
+<h1 class="my-4">Find the best movie's list</h1>
 
 
-<ul>
-<% @lists.each do |list| %>
-  <li><%= link_to list.name, list_path(list) %></li>
-<% end %>
-</ul>
 
-<p> <%= link_to "add list",  new_list_path%></p>
+<div class="cards">
+  <% @lists.each do |list| %>
+  <div class="card-category">
+    <%= link_to list.name, list_path(list) %>
+  </div>
+  <% end %>
+</div>
+
+
+<br>
+<p class="btn btn-ghost"> <%= link_to "add list",  new_list_path%></p>
