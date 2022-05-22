@@ -5,6 +5,7 @@
 <div class="cards">
   <% @lists.each do |list| %>
   <div class="card-category" >
+   <p> <%= link_to list.name, list_path(list) %> </p>
   </div>
   <% end %>
 </div>
