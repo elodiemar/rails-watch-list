@@ -1,11 +1,11 @@
-<h1 class="my-4">Find the best movie's list</h1>
+<h1>Find the best movie's list</h1>
 
 
 
 <div class="cards">
   <% @lists.each do |list| %>
   <div class="card-category" >
-  <%= cl_image_tag list.photo.key, class: "card-category" crop: :fill  %>
+  <%= cl_image_tag list.photo.key, crop: :fill  %>
    <p> <%= link_to list.name, list_path(list) %> </p>
   </div>
   <% end %>
