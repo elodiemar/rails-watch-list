@@ -18,6 +18,6 @@
 <p class="btn btn-ghost"> <%= link_to "add bookmarks",  new_list_bookmark_path(@list) %></p>
 
 <%= link_to "Delete",
-  root_path(@list),
+  lists_path(@list),
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
 %>
