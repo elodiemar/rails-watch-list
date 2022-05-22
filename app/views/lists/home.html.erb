@@ -5,6 +5,7 @@
 <div class="cards">
   <% @lists.each do |list| %>
   <div class="card-category" >
+  <%= cl_image_tag list.photo.key, class:"card-category card-img"  %>
    <p> <%= link_to list.name, list_path(list) %> </p>
   </div>
   <% end %>
