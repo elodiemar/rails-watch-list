@@ -4,7 +4,7 @@
 
 <p class="btn btn-ghost"> <%= link_to "back to list's list",  root_path %></p>
 
-<%= cl_image_path list.photo.key, height: 300, crop: :fill %>
+<%= cl_image_path @list.photo.key, height: 300, crop: :fill %>
 
 <div class="cards my-2 mb-3" >
   <% @list.bookmarks.each do |bookmark| %>
