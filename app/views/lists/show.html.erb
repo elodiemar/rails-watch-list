@@ -1,23 +1,30 @@
+ <%= render "shared/banner_show" %>
+
+<div class="container my-3">
+
+  <h2 class="my-2"><%=@list.name %></h2>
 
 
-<h2 class="my-2"><%=@list.name %></h2>
 
-<p class="btn btn-ghost"> <%= link_to "back to list's list",  root_path %></p>
-
-<%= cl_image_path @list.photo.key, height: 300, crop: :fill %>
-
-<div class="cards my-2 mb-3" >
   <% @list.bookmarks.each do |bookmark| %>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= bookmark.movie.poster_url %>)">
-    <p><%= bookmark.movie.title %> </p><br>
+  <div class="card-movie">
+    <img src="<%= bookmark.movie.poster_url %>" alt="">
+    <div class="card-movie-infos">
+      <div>
+        <h2><%= bookmark.movie.title %> </p>
+        <p> <%= bookmark.comment %> </p>
+      </div>
+    </div>
+      <p class="my-3"> <%= bookmark.movie.overview %></p>
   </div>
-<% end %>
+    <br>
+  <% end %>
+
+  <%= link_to "add bookmarks",  new_list_bookmark_path(@list), :class => 'btn btn-flat' %>
+  <%= link_to "back to list's list",  root_path, :class => 'btn btn-flat my-4' %>
+  <%= link_to "Edit list",  edit_list_path, :class => 'btn btn-flat my-4' %>
+  <%= link_to "Delete",
+    list_path(@list), :class => 'btn btn-flat',
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
 </div>
-
-
-<p class="btn btn-ghost"> <%= link_to "add bookmarks",  new_list_bookmark_path(@list) %></p>
-
-<%= link_to "Delete",
-  list_path(@list),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
